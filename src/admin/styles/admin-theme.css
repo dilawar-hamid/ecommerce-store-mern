@@ -1,0 +1,304 @@
+/* =====================================================
+   ADMIN THEME OVERRIDE — Beige / Olive / Black / White
+   Ye file sb-admin-2.css ke baad load honi chahiye.
+   Sab rules !important ke saath hain taake load-order
+   se koi farq na pade aur kuch bhi na toote.
+===================================================== */
+
+:root {
+  --color-beige: #f4f1ea;
+  --color-beige-soft: #eae5d8;
+  --color-olive: #5f6b3e;
+  --color-olive-dark: #4a5330;
+  --color-olive-light: #8a9464;
+  --color-black: #1f1f1d;
+  --color-charcoal: #45443f;
+  --color-white: #ffffff;
+
+  /* Dashboard cards ke liye earth-tone accents (semantic colors ki jagah) */
+  --color-sage: #7a8c5e;      /* success ki jagah */
+  --color-clay: #7d8fa0;      /* info ki jagah */
+  --color-gold: #c9a24b;      /* warning ki jagah */
+  --color-terracotta: #b5533c; /* danger/alerts ki jagah */
+}
+
+/* ===================== GLOBAL BASE ===================== */
+body,
+#wrapper,
+#content-wrapper {
+  background-color: var(--color-beige) !important;
+  color: var(--color-black) !important;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar,
+.sidebar.bg-gradient-primary {
+  background-color: var(--color-white) !important;
+  background-image: none !important;
+  border-right: 1px solid var(--color-beige-soft) !important;
+}
+
+.sidebar .sidebar-brand,
+.sidebar .sidebar-brand-text {
+  color: var(--color-black) !important;
+}
+
+.sidebar .sidebar-brand-icon i {
+  color: var(--color-olive) !important;
+}
+
+.sidebar-divider {
+  border-top: 1px solid var(--color-beige-soft) !important;
+}
+
+.sidebar .nav-item .nav-link {
+  color: var(--color-charcoal) !important;
+}
+
+.sidebar .nav-item .nav-link i {
+  color: var(--color-charcoal) !important;
+  opacity: 0.7;
+}
+
+.sidebar .nav-item .nav-link:hover,
+.sidebar .nav-item .nav-link:hover i {
+  color: var(--color-olive) !important;
+  opacity: 1;
+}
+
+.sidebar .nav-item .nav-link.active {
+  color: var(--color-olive) !important;
+  background-color: rgba(95, 107, 62, 0.08) !important;
+  border-left: 3px solid var(--color-olive) !important;
+  font-weight: 700;
+}
+
+.sidebar .nav-item .nav-link.active i {
+  color: var(--color-olive) !important;
+  opacity: 1;
+}
+
+#sidebarToggle {
+  background-color: var(--color-olive) !important;
+}
+
+#sidebarToggle::before {
+  color: var(--color-white) !important;
+}
+
+.sidebar-overlay {
+  background-color: rgba(31, 31, 29, 0.4) !important;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--color-beige-soft) !important;
+}
+
+/* ===================== TOPBAR ===================== */
+.topbar {
+  background-color: var(--color-white) !important;
+  border-bottom: 1px solid var(--color-beige-soft) !important;
+}
+
+.topbar .navbar-search .form-control {
+  background-color: var(--color-beige) !important;
+  color: var(--color-black) !important;
+}
+
+.topbar .navbar-search .btn-primary {
+  background-color: var(--color-olive) !important;
+  border-color: var(--color-olive) !important;
+}
+
+.topbar .navbar-search .btn-primary:hover {
+  background-color: var(--color-olive-dark) !important;
+}
+
+.topbar .topbar-divider {
+  background-color: var(--color-beige-soft) !important;
+}
+
+.topbar-icon-button,
+.topbar-profile-button {
+  color: var(--color-charcoal) !important;
+}
+
+.topbar-icon-button:hover,
+.topbar-profile-button:hover {
+  color: var(--color-olive) !important;
+}
+
+.badge-counter {
+  background-color: var(--color-terracotta) !important;
+}
+
+.profile-avatar {
+  background-color: var(--color-olive) !important;
+  color: var(--color-white) !important;
+}
+
+.topbar-dropdown,
+.dropdown-menu {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-beige-soft) !important;
+}
+
+.dropdown-header {
+  background-color: var(--color-beige) !important;
+  color: var(--color-charcoal) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--color-beige) !important;
+  color: var(--color-black) !important;
+}
+
+.icon-circle.bg-primary {
+  background-color: var(--color-olive) !important;
+}
+
+.icon-circle.bg-success {
+  background-color: var(--color-sage) !important;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn-primary {
+  background-color: var(--color-olive) !important;
+  border-color: var(--color-olive) !important;
+  color: var(--color-white) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--color-olive-dark) !important;
+  border-color: var(--color-olive-dark) !important;
+  box-shadow: 0 0 0 0.2rem rgba(95, 107, 62, 0.3) !important;
+}
+
+/* ===================== TEXT & LINKS ===================== */
+.text-primary {
+  color: var(--color-olive) !important;
+}
+
+a {
+  color: var(--color-olive);
+}
+
+a:hover {
+  color: var(--color-olive-dark);
+}
+
+/* ===================== CARDS ===================== */
+.card {
+  background-color: var(--color-white) !important;
+  border: 1px solid var(--color-beige-soft) !important;
+}
+
+.card-header {
+  background-color: var(--color-white) !important;
+  border-bottom: 1px solid var(--color-beige-soft) !important;
+}
+
+.card-header .text-primary {
+  color: var(--color-olive) !important;
+}
+
+/* Dashboard stat cards — left border accent colors */
+.border-left-primary {
+  border-left: 0.25rem solid var(--color-olive) !important;
+}
+
+.border-left-success {
+  border-left: 0.25rem solid var(--color-sage) !important;
+}
+
+.border-left-info {
+  border-left: 0.25rem solid var(--color-clay) !important;
+}
+
+.border-left-warning {
+  border-left: 0.25rem solid var(--color-gold) !important;
+}
+
+.text-success {
+  color: var(--color-sage) !important;
+}
+
+.text-info {
+  color: var(--color-clay) !important;
+}
+
+.text-warning {
+  color: var(--color-gold) !important;
+}
+
+.text-gray-300,
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-gray-800 {
+  color: var(--color-charcoal) !important;
+}
+
+/* ===================== BADGES ===================== */
+.badge-danger {
+  background-color: var(--color-terracotta) !important;
+}
+
+.badge-light {
+  background-color: var(--color-beige) !important;
+  color: var(--color-black) !important;
+  border: 1px solid var(--color-beige-soft);
+}
+
+/* ===================== TABLE ===================== */
+.table thead th {
+  background-color: var(--color-beige) !important;
+  color: var(--color-black) !important;
+  border-color: var(--color-beige-soft) !important;
+}
+
+.table td,
+.table th {
+  border-color: var(--color-beige-soft) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--color-beige) !important;
+}
+
+/* ===================== CHART / DONUT PLACEHOLDERS ===================== */
+.chart-placeholder,
+.donut-placeholder {
+  background-color: var(--color-beige) !important;
+  border: 1px dashed var(--color-beige-soft) !important;
+  color: var(--color-charcoal) !important;
+}
+
+.donut-center {
+  color: var(--color-olive) !important;
+  font-weight: 700;
+}
+
+.fa-circle.text-primary {
+  color: var(--color-olive) !important;
+}
+
+.fa-circle.text-success {
+  color: var(--color-sage) !important;
+}
+
+.fa-circle.text-info {
+  color: var(--color-clay) !important;
+}
+
+/* ===================== SCROLLBAR (cosmetic touch) ===================== */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--color-olive);
+}

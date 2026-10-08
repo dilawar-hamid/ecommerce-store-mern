@@ -1,0 +1,355 @@
+/* =====================================================
+   USER THEME — Beige / Olive / Black / White
+   Ek hi jagah se poore user-side ka look control hota hai
+===================================================== */
+:root {
+  /* --- Core Palette --- */
+  --color-beige: #f4f1ea;        /* warm off-white background */
+  --color-beige-soft: #eae5d8;   /* thodi darker beige, cards/sections ke liye */
+  --color-olive: #5f6b3e;        /* main accent (deep muted olive) */
+  --color-olive-dark: #4a5330;   /* hover / pressed state */
+  --color-olive-light: #8a9464;  /* soft olive, subtle highlights ke liye */
+  --color-black: #1f1f1d;        /* text / headings */
+  --color-charcoal: #45443f;     /* secondary text */
+  --color-white: #ffffff;
+
+  /* --- Utility Tokens --- */
+  --shadow-soft: 0 2px 10px rgba(31, 31, 29, 0.06);
+  --shadow-medium: 0 4px 16px rgba(31, 31, 29, 0.1);
+  --radius-md: 10px;
+  --radius-pill: 50px;
+  --transition-base: all 0.25s ease;
+}
+
+/* ===================== GLOBAL ===================== */
+body {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* ===================== NAVBAR ===================== */
+.custom-navbar {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-beige-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.custom-brand {
+  color: var(--color-black) !important;
+  letter-spacing: 0.5px;
+}
+
+.custom-brand-accent {
+  color: var(--color-olive);
+}
+
+.custom-link {
+  color: var(--color-charcoal) !important;
+  position: relative;
+  transition: var(--transition-base);
+}
+
+.custom-link:hover {
+  color: var(--color-olive) !important;
+}
+
+.custom-link.active {
+  color: var(--color-olive) !important;
+}
+
+/* ===== Active Link Indicator ===== */
+
+/* Desktop: thin underline neeche */
+@media (min-width: 992px) {
+  .custom-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-olive);
+    border-radius: 2px;
+  }
+}
+
+/* Mobile: underline ki jagah left-bar + halka background tint (conflict nahi karega) */
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-item {
+    margin-bottom: 6px;
+  }
+  .custom-link {
+    padding-left: 0.75rem;
+    border-radius: 6px;
+  }
+  .custom-link.active {
+    background-color: rgba(95, 107, 62, 0.08);
+    border-left: 3px solid var(--color-olive);
+  }
+}
+
+.custom-btn-register {
+  background-color: var(--color-olive);
+  color: var(--color-white) !important;
+  border: none;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-base);
+}
+
+.custom-btn-register:hover {
+  background-color: var(--color-olive-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+  color: var(--color-white) !important;
+}
+
+/* ===== Navbar Toggler (mobile) fix ===== */
+.custom-navbar .navbar-toggler {
+  border-color: var(--color-olive) !important;
+}
+
+.custom-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(95, 107, 62, 0.35) !important;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231f1f1d' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ===================== FOOTER ===================== */
+.custom-footer {
+  background-color: var(--color-black);
+  color: var(--color-beige);
+  border-top: 3px solid var(--color-olive);
+}
+
+.custom-footer a {
+  color: var(--color-beige-soft) !important;
+  transition: var(--transition-base);
+}
+
+.custom-footer a:hover {
+  color: var(--color-olive-light) !important;
+}
+
+/* ===================== HOME / PAGES ===================== */
+.custom-hero {
+  background-color: var(--color-beige-soft);
+  color: var(--color-black);
+}
+
+.custom-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-base);
+}
+
+.custom-card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.custom-btn-primary {
+  background-color: var(--color-olive);
+  color: var(--color-white) !important;
+  border: none;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-base);
+}
+
+.custom-btn-primary:hover {
+  background-color: var(--color-olive-dark);
+}
+
+/* Yahan aage jitni bhi pages ki styling honi ho (login, products waghera),
+   inhi variables (--color-olive, --color-beige, waghera) ko reuse karte jao,
+   taake poori app ka look consistent rahe */
+
+   
+/* ===================== ABOUT PAGE ===================== */
+
+.about-page {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.about-hero {
+  padding-top: 45px;
+  padding-bottom: 65px;
+}
+
+.about-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  color: var(--color-olive);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.about-breadcrumb a {
+  color: var(--color-olive);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.about-breadcrumb a:hover {
+  color: var(--color-olive-dark);
+}
+
+.about-breadcrumb i {
+  font-size: 11px;
+}
+
+.about-tag {
+  display: inline-block;
+  color: var(--color-olive);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.about-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.about-subtitle {
+  color: var(--color-charcoal);
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.about-heading {
+  color: var(--color-olive);
+  font-size: 27px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.about-text {
+  color: var(--color-charcoal);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-btn {
+  padding: 13px 28px;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.about-image-wrapper {
+  width: 100%;
+  height: 440px;
+  overflow: hidden;
+  border-radius: 18px;
+  background-color: var(--color-beige-soft);
+  box-shadow: var(--shadow-medium);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-features {
+  background-color: var(--color-beige);
+  padding: 55px 0;
+}
+
+.about-feature-card {
+  height: 100%;
+  padding: 28px;
+  background-color: var(--color-white);
+  border: 1px solid rgba(95, 107, 62, 0.08);
+  border-radius: 15px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-base);
+}
+
+.about-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.about-feature-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-color: var(--color-beige-soft);
+  color: var(--color-olive);
+  font-size: 25px;
+}
+
+.about-feature-card h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.about-feature-card p {
+  color: var(--color-charcoal);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.about-mission {
+  max-width: 850px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  text-align: center;
+}
+
+.about-mission h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.about-mission p {
+  color: var(--color-charcoal);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .about-image-wrapper {
+    height: 360px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-hero {
+    padding-top: 30px;
+    padding-bottom: 45px;
+  }
+
+  .about-image-wrapper {
+    height: 270px;
+  }
+
+  .about-feature-card {
+    padding: 23px;
+  }
+
+  .about-mission {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
