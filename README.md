@@ -1,43 +1,99 @@
-# React SB Admin 2 Dashboard
+E-Commerce Store (MERN)
 
-This project converts the useful visual shell from the supplied StartBootstrap SB Admin 2 template into React components.
+A full-stack e-commerce web application with a customer storefront and an admin panel, built with the MERN stack.
 
-## Included
-- React Router layout with `Outlet`
-- Reusable `DashboardLayout`
-- React `Sidebar` with Dashboard + Orders menus
-- Responsive mobile sidebar toggle
-- React `Topbar` with search, alerts, messages and profile dropdowns
-- Dashboard and Orders pages
-- SB Admin 2 CSS and local Font Awesome assets copied from the supplied template
-- No jQuery or Bootstrap JavaScript dependency
+Status: Under development. Core authentication and product/category management are working. Cart, checkout and orders are in progress.
 
-## Run
+Tech Stack
 
-```bash
+Frontend: React 19, Vite, React Router, Axios, Formik + Yup, Bootstrap 5 Backend: Node.js, Express 5, MongoDB (Mongoose), JWT, bcrypt, Multer Database: MongoDB Atlas
+
+Features
+Implemented
+User registration and login with JWT authentication
+Password hashing with bcrypt
+Role-based access (user / admin) with protected routes
+Admin panel (SB Admin 2 based layout)
+Add, view, update and delete categories
+Add, view, update and delete products with image upload
+Form validation using Formik and Yup
+Storefront pages: Home, Products, About, Login, Register
+In Progress
+Shopping cart (UI ready, logic pending)
+Checkout and order placement
+Orders management and dashboard statistics (UI ready, backend pending)
+Deployment
+Project Structure
+text
+.
+├── backend/
+│   ├── config/        # DB connection, multer setup
+│   ├── controllers/   # Category, Product, User logic
+│   ├── middleware/    # JWT verification
+│   ├── models/        # Mongoose schemas
+│   ├── routes/        # API routes
+│   ├── uploads/       # Uploaded product images
+│   └── server.js
+├── src/
+│   ├── admin/         # Admin panel (components, layouts, pages, validations)
+│   ├── user/          # Storefront (components, layouts, pages)
+│   ├── context/       # Auth context
+│   └── App.jsx
+└── package.json
+Getting Started
+Prerequisites
+Node.js 18+
+A MongoDB database (local or MongoDB Atlas)
+1. Clone the repository
+bash
+git clone https://github.com/dilawar-hamid/ecommerce-store-mern.git
+cd ecommerce-store-mern
+2. Setup the backend
+bash
+cd backend
+npm install
+
+Create a .env file inside backend/ (see .env.example):
+
+env
+MONGO_URI=your_mongodb_connection_string
+PORT=4000
+JWT_SECRET=your_secret_key
+
+Start the server:
+
+bash
+npm run dev
+3. Setup the frontend
+
+Open a new terminal in the project root:
+
+bash
 npm install
 npm run dev
-```
 
-## Structure
+The app runs on http://localhost:5173 and the API on http://localhost:4000.
 
-```text
-src/
-  components/
-    Sidebar.jsx
-    Topbar.jsx
-  layouts/
-    DashboardLayout.jsx
-  pages/
-    Dashboard.jsx
-    Orders.jsx
-    NotFound.jsx
-  styles/
-    sb-admin-2.css
-  App.jsx
-  App.css
-  index.css
-  main.jsx
-```
+API Endpoints
+Resource	Method	Endpoint	Access
+Categories	GET	/categoryroutes	Public
+Categories	POST / PUT / DELETE	/categoryroutes, /categoryroutes/:id	Auth
+Products	GET	/productroutes	Public
+Products	POST / PUT / DELETE	/productroutes, /productroutes/:id	Auth
+Users	POST	/userroutes/login	Public
+Author
 
-Add future dashboard pages under `src/pages` and register them inside `src/App.jsx`. The page will automatically render inside the layout through React Router's `Outlet`.
+Dilawar Hamid GitHub: @dilawar-hamid
+
+Content
+theme.zip
+
+ZIP
+
+Microsoft Windows [Version 10.0.19045.6466] (c) Microsoft Corporation. All rights reserved. C:\Users\Lenovo\Desktop\FRONT-BACK\THEME\theme>GIT STATUS git: 'STATUS' is not a git command. See 'git --help'. C:\Users\Lenovo\Desktop\FRONT-BACK\THEME\theme>git status fatal: not a git repository (
+
+PASTED
+
+Microsoft Windows [Version 10.0.19045.6466] (c) Microsoft Corporation. All rights reserved. C:\Users\Lenovo\Desktop\FRONT-BACK\THEME\theme>GIT STATUS git: 'STATUS' is not a git command. See 'git --help'. C:\Users\Lenovo\Desktop\FRONT-BACK\THEME\theme>git status fatal: not a git repository (
+
+PASTED
