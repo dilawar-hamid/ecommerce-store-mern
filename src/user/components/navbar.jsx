@@ -1,13 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Navbar() {
   const location = useLocation();
+  const { user, logout } = useContext(AuthContext);
   const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar shadow-sm py-3">
       <div className="container">
-
         <Link className="navbar-brand fw-bold fs-4 custom-brand" to="/">
           My<span className="custom-brand-accent">Store</span>
         </Link>
@@ -59,30 +61,55 @@ function Navbar() {
                 <i className="bi bi-info-circle me-1"></i>About
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link fw-semibold custom-link ${isActive("/login") ? "active" : ""}`}
-                to="/login"
-              >
-                <i className="bi bi-box-arrow-in-right me-1"></i>Login
-              </Link>
-            </li>
-            <li className="nav-item ms-lg-2">
-              <Link className="btn custom-btn-register rounded-pill px-4 fw-semibold" to="/register">
-                Register
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link fw-semibold custom-link ${isActive("/dashboard") ? "active" : ""}`}
-                to="/dashboard"
-              >
-                <i className="bi bi-box-arrow-in-right me-1"></i>Dashboard
-              </Link>
-            </li>
+
+            {!user ? (
+              <>
+                <li className="nav-item">
+                  <Link
+                    className={`nav-link fw-semibold custom-link ${isActive("/login") ? "active" : ""}`}
+                    to="/login"
+                  >
+                    <i className="bi bi-box-arrow-in-right me-1"></i>Login
+                  </Link>
+                </li>
+
+                <li className="nav-item ms-lg-2">
+                  <Link
+                    className="btn custom-btn-register rounded-pill px-4 fw-semibold"
+                    to="/register"
+                  >
+                    Register
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                {user.role === "admin" && (
+                  <li className="nav-item">
+                    <Link
+                      className={`nav-link fw-semibold custom-link ${isActive("/dashboard") ? "active" : ""}`}
+                      to="/dashboard"
+                    >
+                      <i className="bi bi-speedometer2 me-1"></i>Dashboard
+                    </Link>
+                  </li>
+                )}
+
+                <li className="nav-item">
+                  <button
+                    className="nav-link fw-semibold custom-link"
+                    onClick={() => {
+                      logout();
+                      window.location.href = "/login";
+                    }}
+                  >
+                    <i className="bi bi-box-arrow-right me-1"></i>Logout
+                  </button>
+                </li>
+              </>
+            )}
           </ul>
         </div>
-
       </div>
     </nav>
   );

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import UserSchema from "../../admin/validations/LoginValidation";
@@ -6,6 +8,7 @@ import { useState } from "react";
 
 function Login() {
   const Navigate = useNavigate();
+  const { login } = useContext(AuthContext);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const form = useFormik({
@@ -23,7 +26,7 @@ function Login() {
         `http://localhost:4000/userroutes/login`,
         values,
       );
-      localStorage.setItem("token", verify.data.token);
+      login(verify.data.token);
       Navigate("/");
     } catch (err) {
       const message = err.response.data.message;

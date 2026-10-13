@@ -16,6 +16,12 @@ const Authmiddleware = (req, res, next) => {
 
     req.user = decoded;
 
+    if (decoded.role !== "admin") {
+      return res.status(403).json({
+        message: "Admin access required",
+      });
+    }
+
     next();
   } catch (err) {
     return res.status(401).json({

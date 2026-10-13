@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext.jsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -8,6 +10,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
+  const { addToCart } = useContext(CartContext);
 
   async function fetch() {
     const show = await axios.get(`http://localhost:4000/productroutes`);
@@ -93,7 +96,10 @@ function Products() {
                     <span className="fw-semibold custom-brand-accent">
                       Rs. {product.price.toLocaleString()}
                     </span>
-                    <button className="btn btn-sm custom-btn-primary rounded-pill px-3">
+                    <button
+                      className="btn btn-sm custom-btn-primary rounded-pill px-3"
+                      onClick={() => addToCart(product)}
+                    >
                       <i className="bi bi-cart-plus"></i>
                     </button>
                   </div>

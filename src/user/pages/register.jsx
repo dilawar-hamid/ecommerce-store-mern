@@ -24,7 +24,7 @@ function Register() {
         `http://localhost:4000/userroutes/register`,
         values,
       );
-      Navigate("/");
+      Navigate("/login");
     } catch (err) {
       setToast({ type: "error", message: err.response.data.error });
     }

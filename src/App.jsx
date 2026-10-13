@@ -19,7 +19,6 @@ import About from "./user/pages/about";
 import UpdateCategory from "./admin/pages/UpdateCat";
 import UpdateProduct from "./admin/pages/UpdateProduct";
 import ProtectedRoute from "../ProtectedRoute";
-import Logout from "./user/pages/logout";
 
 export default function App() {
   return (
@@ -32,7 +31,6 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/logout" element={<Logout />} />
         </Route>
 
         <Route

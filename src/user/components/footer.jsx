@@ -5,7 +5,6 @@ function Footer() {
     <footer className="custom-footer pt-5 pb-4 mt-auto">
       <div className="container">
         <div className="row gy-4">
-
           {/* Brand + short intro */}
           <div className="col-md-4">
             <h5 className="fw-bold mb-3">
@@ -70,7 +69,6 @@ function Footer() {
               </a>
             </div>
           </div>
-
         </div>
 
         <hr className="my-4 opacity-25" />
