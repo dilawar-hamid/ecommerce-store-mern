@@ -121,3 +121,15 @@
     width: 100%;
   }
 }
+.cart-count-badge {
+  background-color: #d4a373;
+  color: #ffffff;
+  font-size: 10px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  padding: 0 4px;
+}

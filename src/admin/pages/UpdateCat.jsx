@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../config.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,7 +11,7 @@ function UpdateCategory() {
   });
   async function getcategory() {
     try {
-      const res = await axios.get(`http://localhost:4000/Categoryroutes/${id}`);
+      const res = await axios.get(`${API_BASE_URL}/Categoryroutes/${id}`);
 
       setdata(res.data);
     } catch (err) {
@@ -23,11 +24,11 @@ function UpdateCategory() {
 
   async function update(values) {
     const upd = await axios.put(
-      `http://localhost:4000/Categoryroutes/${id}`,
+      `${API_BASE_URL}/Categoryroutes/${id}`,
       values,
       {
         headers: {
-          Authorization: `bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       },
     );

@@ -1,4 +1,4 @@
-
+import { API_BASE_URL } from "../../config.js";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext.jsx";
@@ -61,7 +61,7 @@ function Cart() {
                   <div className="col-4 col-md-3">
                     <div className="custom-cart-image">
                       <img
-                        src={`http://localhost:4000/uploads/${item.product.image}`}
+                        src={`${API_BASE_URL}/uploads/${item.product.image}`}
                         alt={item.product.name}
                         className="w-100 rounded"
                         style={{

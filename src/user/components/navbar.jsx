@@ -1,3 +1,4 @@
+import { CartContext } from "../../context/CartContext.jsx";
 import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -5,6 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 function Navbar() {
   const location = useLocation();
   const { user, logout } = useContext(AuthContext);
+  const { cartItems } = useContext(CartContext);
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -45,14 +47,26 @@ function Navbar() {
                 <i className="bi bi-box-seam me-1"></i>Products
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                className={`nav-link fw-semibold custom-link ${isActive("/cart") ? "active" : ""}`}
-                to="/cart"
-              >
-                <i className="bi bi-cart3 me-1"></i>Cart
-              </Link>
-            </li>
+            <Link
+              className={`nav-link fw-semibold custom-link ${
+                isActive("/cart") ? "active" : ""
+              }`}
+              to="/cart"
+            >
+              <span className="position-relative">
+                <i className="bi bi-cart3 me-1"></i>
+                Cart
+                {cartItems.reduce((total, item) => total + item.quantity, 0) >
+                  0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-count-badge">
+                    {cartItems.reduce(
+                      (total, item) => total + item.quantity,
+                      0,
+                    )}
+                  </span>
+                )}
+              </span>
+            </Link>
             <li className="nav-item">
               <Link
                 className={`nav-link fw-semibold custom-link ${isActive("/about") ? "active" : ""}`}

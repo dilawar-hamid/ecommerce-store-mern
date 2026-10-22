@@ -1,13 +1,16 @@
+import { API_BASE_URL } from "../../config.js";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import UserSchema from "../../admin/validations/LoginValidation";
 import axios from "axios";
 import { useState } from "react";
 
 function Login() {
   const Navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
   const { login } = useContext(AuthContext);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -23,11 +26,11 @@ function Login() {
   async function cheackUser(values) {
     try {
       const verify = await axios.post(
-        `http://localhost:4000/userroutes/login`,
+        `${API_BASE_URL}/userroutes/login`,
         values,
       );
       login(verify.data.token);
-      Navigate("/");
+      Navigate(from, { replace: true });
     } catch (err) {
       const message = err.response.data.message;
 

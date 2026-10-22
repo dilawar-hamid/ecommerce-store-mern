@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../config.js";
 import axios from "axios";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
@@ -21,7 +22,7 @@ function Register() {
   async function AddUser(values) {
     try {
       const add = await axios.post(
-        `http://localhost:4000/userroutes/register`,
+        `${API_BASE_URL}/userroutes/register`,
         values,
       );
       Navigate("/login");

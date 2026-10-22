@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import router from "./routes/Productroutes.js";
 import catrouter from "./routes/Categoryroutes.js";
 import userruoter from "./routes/Userroutes.js";
+import Orderroutes from "./routes/Orderroutes.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use("/productroutes", router);
 app.use("/uploads", express.static("uploads"));
 app.use("/categoryroutes", catrouter);
 app.use("/userroutes", userruoter);
+app.use("/Orderroutes", Orderroutes);
 
 connectDB();
 

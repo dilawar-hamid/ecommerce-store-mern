@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../config.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -7,7 +8,7 @@ function ShowCategory() {
   const [data, setdata] = useState([]);
   const Navigate = useNavigate();
   async function show() {
-    const fetch = await axios.get(`http://localhost:4000/Categoryroutes`);
+    const fetch = await axios.get(`${API_BASE_URL}/Categoryroutes`);
     setdata(fetch.data);
   }
 
@@ -17,7 +18,7 @@ function ShowCategory() {
 
   async function procount() {
     try {
-      const pro = await axios.get(`http://localhost:4000/Productroutes`);
+      const pro = await axios.get(`${API_BASE_URL}/Productroutes`);
       setProducts(pro.data);
     } catch {}
   }
@@ -33,7 +34,7 @@ function ShowCategory() {
   async function deletecat(id) {
     try {
       const del = await axios.delete(
-        `http://localhost:4000/Categoryroutes/${id}`,
+        `${API_BASE_URL}/Categoryroutes/${id}`,
         {
           headers: {
             Authorization: `bearer ${localStorage.getItem("token")}`,

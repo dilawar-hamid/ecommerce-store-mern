@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import DashboardLayout from "./admin/layouts/DashboardLayout";
 import Dashboard from "./admin/pages/Dashboard";
 import Orders from "./admin/pages/Orders";
@@ -19,16 +19,23 @@ import About from "./user/pages/about";
 import UpdateCategory from "./admin/pages/UpdateCat";
 import UpdateProduct from "./admin/pages/UpdateProduct";
 import ProtectedRoute from "../ProtectedRoute";
+import Checkout from "./user/pages/checkout";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import MyOrders from "./user/pages/MyOrders";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
+      <ToastContainer position="top-right" autoClose={2500} />
       <Routes>
         <Route element={<UserLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
@@ -51,6 +58,6 @@ export default function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }

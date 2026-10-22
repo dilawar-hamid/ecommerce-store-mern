@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../config.js";
 import { useNavigate } from "react-router-dom";
 
 function ShowProduct() {
@@ -10,7 +11,7 @@ function ShowProduct() {
 
   async function show() {
     try {
-      const fetch = await axios.get(`http://localhost:4000/Productroutes`);
+      const fetch = await axios.get(`${API_BASE_URL}/Productroutes`);
 
       setdata(fetch.data);
     } catch (err) {
@@ -25,7 +26,7 @@ function ShowProduct() {
   async function deleteproduct(id) {
     try {
       const del = await axios.delete(
-        `http://localhost:4000/Productroutes/${id}`,
+        `${API_BASE_URL}/Productroutes/${id}`,
         {
           headers: {
             Authorization: `bearer ${localStorage.getItem("token")}`,
@@ -283,7 +284,7 @@ function ShowProduct() {
                     <td>
                       <div className="d-flex align-items-center gap-3">
                         <img
-                          src={`http://localhost:4000/uploads/${product.image}`}
+                          src={`${API_BASE_URL}/uploads/${product.image}`}
                           alt={product.name}
                           style={{
                             width: "42px",

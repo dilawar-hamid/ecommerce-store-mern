@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../config.js";
 import { useFormik } from "formik";
 import schema from "../validations/ProductValidation";
 import axios from "axios";
@@ -32,7 +33,7 @@ function Product() {
     formdata.append("image", values.image);
 
     const response = await axios.post(
-      `http://localhost:4000/Productroutes`,
+      `${API_BASE_URL}/Productroutes`,
       formdata,
       {
         headers: {
@@ -45,7 +46,7 @@ function Product() {
 
   async function fetchcat() {
     try {
-      const response = await axios.get("http://localhost:4000/Categoryroutes");
+      const response = await axios.get(`${API_BASE_URL}/Categoryroutes`);
 
       setdata(response.data);
     } catch (err) {

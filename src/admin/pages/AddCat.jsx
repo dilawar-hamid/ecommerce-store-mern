@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../config.js";
 import { useFormik } from "formik";
 import schema from "../validations/CategoryValidation";
 import axios from "axios";
@@ -15,7 +16,7 @@ function AddCategory() {
     onSubmit: (values) => addcat(values),
   });
   async function addcat(values) {
-    const post = await axios.post(`http://localhost:4000/Categoryroutes`, values, {
+    axios.post(`${API_BASE_URL}/Categoryroutes`, values, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

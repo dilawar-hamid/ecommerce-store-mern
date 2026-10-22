@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../config.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,14 +18,14 @@ function UpdateProduct() {
   const [categories, setCategories] = useState([]);
 
   async function getdata() {
-    const get = await axios.get(`http://localhost:4000/Productroutes/${id}`);
+    const get = await axios.get(`${API_BASE_URL}/Productroutes/${id}`);
 
     setdata(get.data);
   }
 
   async function fetchcat() {
     try {
-      const response = await axios.get("http://localhost:4000/Categoryroutes");
+      const response = await axios.get(`${API_BASE_URL}/Categoryroutes`);
 
       setCategories(response.data);
     } catch (err) {
@@ -42,11 +43,11 @@ function UpdateProduct() {
     formdata.append("image", values.image);
 
     const upd = await axios.put(
-      `http://localhost:4000/Productroutes/${id}`,
+      `${API_BASE_URL}/Productroutes/${id}`,
       formdata,
       {
         headers: {
-          Authorization: `bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       },
     );

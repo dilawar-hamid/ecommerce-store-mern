@@ -38,7 +38,7 @@ class UserController {
       };
 
       const token = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: "1d",
+        expiresIn: "5m",
       });
 
       finduser.password = undefined;

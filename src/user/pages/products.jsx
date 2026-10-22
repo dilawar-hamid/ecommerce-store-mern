@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { API_BASE_URL } from "../../config.js";
 import { CartContext } from "../../context/CartContext.jsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ function Products() {
   const { addToCart } = useContext(CartContext);
 
   async function fetch() {
-    const show = await axios.get(`http://localhost:4000/productroutes`);
+    const show = await axios.get(`${API_BASE_URL}/productroutes`);
     setProducts(show.data);
   }
 
@@ -79,7 +80,7 @@ function Products() {
             <div className="col-6 col-md-4 col-lg-3" key={product._id}>
               <div className="custom-card overflow-hidden h-100">
                 <img
-                  src={`http://localhost:4000/uploads/${product.image}`}
+                  src={`${API_BASE_URL}/uploads/${product.image}`}
                   alt={product.name}
                   className="w-100"
                   style={{ height: "200px", objectFit: "cover" }}
